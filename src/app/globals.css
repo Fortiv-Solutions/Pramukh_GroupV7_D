@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Pramukh Group — luxury design tokens
+------------------------------------------------------------------ */
+/* light theme (default): ivory surfaces, dark ink text, deepened gold */
+:root {
+  --navy: #f7f3ea;
+  --navy-2: #efe8da;
+  --charcoal: #ffffff;
+  --linen: #18242e;
+  --linen-dim: rgba(24, 36, 46, 0.68);
+  --gold: #a5803e;
+  --gold-light: #8a6a32;
+  --gold-soft: rgba(165, 128, 62, 0.4);
+  --on-gold: #ffffff;
+}
+
+/* scoped dark palette for sections that sit on photography
+   (hero, page heroes, city panels, CTA, header, footer, preloader) */
+.theme-dark {
+  --navy: #0d1b26;
+  --navy-2: #122433;
+  --charcoal: #0a141c;
+  --linen: #f5f1e8;
+  --linen-dim: rgba(245, 241, 232, 0.72);
+  --gold: #c9a25e;
+  --gold-light: #e0c794;
+  --gold-soft: rgba(201, 162, 94, 0.35);
+  --on-gold: #0a141c;
+  color: var(--linen);
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-charcoal: var(--charcoal);
+  --color-linen: var(--linen);
+  --color-linen-dim: var(--linen-dim);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-soft: var(--gold-soft);
+  --color-on-gold: var(--on-gold);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-jost);
+  --ease-luxe: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html {
+  scroll-behavior: auto; /* Lenis owns scrolling */
+}
+
+body {
+  background: var(--navy);
+  color: var(--linen);
+  font-family: var(--font-jost), sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--on-gold);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-soft);
+}
+
+/* shared utility classes */
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.title-display {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.btn-luxe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--on-gold);
+  cursor: pointer;
+  transition: background 0.35s var(--ease-luxe), color 0.35s var(--ease-luxe);
+}
+.btn-luxe:hover {
+  background: transparent;
+  color: var(--gold);
+}
+.btn-luxe.is-ghost {
+  background: transparent;
+  border-color: var(--linen-dim);
+  color: var(--linen);
+}
+.btn-luxe.is-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.gold-rule {
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+}
+
+input.luxe,
+select.luxe,
+textarea.luxe {
+  width: 100%;
+  background: rgba(245, 241, 232, 0.06);
+  border: 1px solid rgba(245, 241, 232, 0.25);
+  color: var(--linen);
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: border-color 0.3s;
+}
+input.luxe::placeholder,
+textarea.luxe::placeholder {
+  color: var(--linen-dim);
+}
+input.luxe:focus,
+select.luxe:focus,
+textarea.luxe:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+select.luxe option {
+  background: var(--navy);
+  color: var(--linen);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

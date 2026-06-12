@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node scripts/verify-scroll.mjs)",
+      "Bash(cmd //c start http://localhost:3471/)"
+    ]
+  }
+}
